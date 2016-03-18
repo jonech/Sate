@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-
+ruby '2.2.4'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
 # Use sqlite3 as the database for Active Record
@@ -22,6 +22,21 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
+
+# For Facebook api
+gem 'koala', '~> 2.2'
+gem 'omniauth-facebook'
+
+# Use polymer
+gem 'polymer-rails'
+gem 'polymer-paper-rails'
+
+# Use font awesome & bootstrap
+gem "font-awesome-rails"
+gem 'bootstrap-sass', '~> 3.3.5'
+
+# Use google map api
+gem 'gmaps4rails'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
