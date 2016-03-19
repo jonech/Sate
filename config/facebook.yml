@@ -1,0 +1,6 @@
+# Facebook keys and id obtained from 
+# https://developers.facebook.com/apps/1719970504907635/
+
+development:
+  app_id: 1719970504907635
+  secret: e8341f91c3d01e1d5aba7bfa961f424e
