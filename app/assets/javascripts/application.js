@@ -13,5 +13,10 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require uber
+//= require underscore
+//= require gmaps/google
+//= require googlemap
 //= require_tree .
+//= require_self
 

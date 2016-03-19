@@ -3,32 +3,55 @@
 <head>
   <title>Sate</title>
   <%= stylesheet_link_tag    "application", media: "all" %>
+  <%= javascript_include_tag "//maps.google.com/maps/api/js?v=3.18&sensor=false&client=&key=&libraries=geometry&language=&hl=&region=" %>
+  <%= javascript_include_tag "//google-maps-utility-library-v3.googlecode.com/svn/tags/markerclustererplus/2.0.14/src/markerclusterer_packed.js" %>
   <%= javascript_include_tag "application" %>
+  <%= yield :javascripts %>
   <%= csrf_meta_tags %>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </head>
 <body>
 
-<div class = "navbar navbar-default navbar-static-top">
+
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class = "container">
         <a href ="#" class = "navbar-brand">Sate</a>
 
         <button class = "navbar-toggle" data-toggle = "collapse" data-target = ".navHeaderCollapse" >
             <span class = "icon-bar"></span>
-            <span class = "icon-bar"></span>
-            <span class = "icon-bar"></span>
+            <span style = "width:75%" class = "icon-bar"></span>
+            <span style = "width:50%" class = "icon-bar"></span>
         </button>
+
+
+
+        <form class="navbar-form navbar-left" role="search">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Search">
+          </div>
+          <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+
 
         <div class = "collapse navbar-collapse navHeaderCollapse">
             <ul class = "nav navbar-nav navbar-right">
-                <li><a href = "#">Home</a></li>
+                <li class = "active"><a href = "#">Home</a></li>
                 <li><a href = "#">Profile</a></li>
-                <li><a href = "#">Events</a></li>
+                <li class = "dropdown">
+                  <a href = "#" class = "dropdown-toggle" data-toggle = "dropdown">Events<b class = "caret"></b></a>
+                  <ul class = "dropdown-menu">
+                    <li><a href = "#">Popular Events</a></li>
+                    <li><a href = "#">Attending Events</a></li>
+                    <li><a href = "#">Your Events</a></li>
+                  </ul>
+                </li>
                 <li><a href = "#">Logout</a></li>
                 <li><a href = "#">Help</a></li>
             </ul>
         </div>
     </div>
-</div>
+</nav>
 
 <div id = "container">
   <div id = "user_nav">
@@ -45,5 +68,6 @@
 
 <%= yield %>
 </div>
+
 </body>
 </html>
