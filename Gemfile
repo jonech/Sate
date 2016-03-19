@@ -28,9 +28,15 @@ gem 'koala', '~> 2.2'
 gem 'omniauth-facebook'
 
 # Use polymer
-gem 'polymer-rails', '~> 1.0'
-# gem 'polymer-paper-rails'
-gem 'polymer-elements-rails', '~>1.0.0'
+# gem 'polymer-rails', :github => 'alchapone/polymer-rails', :branch => '1.0.x'
+# # gem 'polymer-paper-rails'
+# gem 'polymer-elements-rails', '~>1.0.0'
+# gem 'polymer-iron-rails', :git => "git://github.com/vsimonian/polymer-iron-rails.git"
+# gem 'polymer-paper-rails', :git => "git://github.com/vsimonian/polymer-paper-rails.git"
+# gem 'polymer-neon-rails', :git => "git://github.com/vsimonian/polymer-neon-rails.git"
+
+# gem 'bower-rails'
+gem 'emcee'
 
 # Use font awesome & bootstrap
 gem "font-awesome-rails"
