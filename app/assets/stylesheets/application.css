@@ -18,6 +18,7 @@
 @import "font-awesome";
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
+@import 'feedpage';
 
 .uber-button {
     background-image: url('uber_button.png');
