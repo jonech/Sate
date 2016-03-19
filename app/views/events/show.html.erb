@@ -24,7 +24,7 @@
           </div>
         </div>
         <div class="uber-button">
-          <p id="uber-button-text">Request Ride</p>
+          <p id="uber-button-text">REQUEST RIDE</p>
           <p><center><u>Estimate ride?</u></center></p>
         </div>
       </div>
@@ -46,9 +46,9 @@
 
 <script>
   $(document).ready(function(){
-    initialize();
-    var event = <%= @event_hash.inspect.html_safe %>
-    gmap_show(event);
+    // initialize(<%= hash.inspect.html_safe %>);
+    // gmap_show(<%= hash.inspect.html_safe %>);
+    initMap(<%= @event_hash.to_json.inspect.html_safe %>);
   });
 </script>
 
