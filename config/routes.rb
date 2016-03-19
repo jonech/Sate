@@ -1,16 +1,25 @@
 Rails.application.routes.draw do
+<<<<<<< HEAD
 
   get 'welcome/loginpage'
   resources :events
+=======
+  #get 'welcome/loginpage'
+  match ':controller(/:action(/:id))', :via => :get
+>>>>>>> acfba42d4c572b3ad6f3ef1349b489d6c7460682
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
+<<<<<<< HEAD
   #root 'welcome#loginpage'
 
   root 'welcome#index'
 
+=======
+  root 'welcome#loginpage'
+>>>>>>> acfba42d4c572b3ad6f3ef1349b489d6c7460682
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
