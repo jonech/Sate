@@ -1,25 +1,3 @@
-<div class = "navbar navbar-default navbar-static-top">
-	<div class = "container">
-		<a href ="#" class = "navbar-brand">Sate</a>
-
-		<button class = "navbar-toggle" data-toggle = "collapse" data-target = ".navHeaderCollapse" >
-			<span class = "icon-bar"></span>
-			<span class = "icon-bar"></span>
-			<span class = "icon-bar"></span>
-		</button>
-
-		<div class = "collapse navbar-collapse navHeaderCollapse">
-			<ul class = "nav navbar-nav navbar-right">
-				<li><a href = "#">Home</a></li>
-				<li><a href = "#">Profile</a></li>
-				<li><a href = "#">Events</a></li>
-				<li><a href = "#">Logout</a></li>
-				<li><a href = "#">Help</a></li>
-			</ul>
-		</div>
-	</div>
-</div>
-
 <h1>Events</h1>
 <div class="container">
 <%- @events.each_slice(3) do |group| %>
