@@ -1,44 +1,41 @@
-<!DOCTYPE html>
-<html lang="en">
+<h1>Events</h1>
+<div class="container">
+<%- @events.each_slice(3) do |group| %>
+    <div class="row">
+    <%- group.each do |event| %>
+      <div class="col-md-6">
+        <img data-src="..." alt="Card image">
+        <div class="card card-block">
+          <h3 class="card-title"><%= event.name %></h3>
+          <h6 class="card-subtitle text-muted">Organised by: <%= event.organisation %></h6>
+          <p class="card-text"><%= event.description %></p>
+          <a href="/events/<%= event.id %>" class="btn btn-primary">More details</a>
+        </div>
+      </div>
+    <% end %>
+<% end %>
+</div>
 
-	<head>
-        <title><h1>Events</h1></title>
-        <meta name="viewpoint" content="width=device-width, initial-scale=1.0">
-        <link href = "assets/stylesheets/bootstrap.min.css" rel = "stylesheet">
-        <link href = "assets/stylesheets/styles.css" rel = "stylesheet">
-    </head>
-
-
-    <body>
-    	<div class = "navbar navbar-default navbar-static-top">
-    		<div class = "container">
-    			<a href ="#" class = "navbar-brand">Sate</a>
-
-				<button class = "navbar-toggle" data-toggle = "collapse" data-target = ".navHeaderCollapse" >
-					<span class = "icon-bar"></span>
-					<span class = "icon-bar"></span>
-					<span class = "icon-bar"></span>
-				</button>
-
-    			<div class = "collapse navbar-collapse navHeaderCollapse">
-    				<ul class = "nav navbar-nav navbar-right">
-    					<li><a href = "#">Home</a></li>
-    					<li><a href = "#">Profile</a></li>
-    					<li><a href = "#">Events</a></li>
-    					<li><a href = "#">Logout</a></li>
-    					<li><a href = "#">Help</a></li>
-    				</ul>
-    			</div>
-    		</div>
-    	</div>
-
-    	<h1>Events</h1>
-    	
-		<script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
-		<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-		<script src = "js/bootsctrap.js"></script>
-
-	</body>
+<!-- <h1>Events</h1>
+<div class="container">
+<%- @events.each_slice(3) do |group| %>
+    <div class="row">
+    <%- group.each do |event| %>
+      <paper-card heading="Pre-fab homes" image="./house.png" class="white" style="margin-bottom:8px;">
+        <div class="card-actions">
+          <paper-icon-button icon="favorite"></paper-icon-button>
+          <paper-icon-button icon="bookmark"></paper-icon-button>
+          <paper-icon-button icon="social:share"></paper-icon-button>
+        </div>
+      </paper-card>
+      <iron-collapse id="more-info" style="width:100%;">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent enim ante, tempus eget volutpat ac, cursus ac ante. Nulla facilisi. Praesent sed lacinia ligula. Donec malesuada nisl eget quam iaculis, vel placerat justo cursus.
+      </iron-collapse>
+    <% end %>
+<% end %>
+</div> -->
 
 
-</html>
+
+
+

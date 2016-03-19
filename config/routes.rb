@@ -1,19 +1,32 @@
-Rails.application.routes.draw do
+Sate::Application.routes.draw do
+    get 'auth/:provider/callback', to: 'sessions#create'
+    get 'auth/failure', to: redirect('/')
+    get 'signout', to: 'sessions#destroy', as: 'signout'
 
-  get 'welcome/loginpage'
+    resources :sessions, only: [:create, :destroy] 
+      resource :welcome, only: [:show]
+    root to: "welcome#loginpage"
+    get 'picture' => 'picture#display_pictures'
+    get 'welcome/loginpage'
+    resources :events
+    #get 'welcome/loginpage'
+    match ':controller(/:action(/:id))', :via => :get
+    
+end
+#Rails.application.routes.draw do
 
-  resources :events
-  #get 'welcome/loginpage'
+ # get 'sessions/create'
 
-  get 'picture' => 'picture#display_pictures'
+  #get 'sessions/destroy'
 
-  match ':controller(/:action(/:id))', :via => :get
+  #get 'home/show'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'welcome#loginpage'
+  #root 'welcome#loginpage'
 
 
   # Example of regular route:
@@ -64,4 +77,4 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-end
+#end

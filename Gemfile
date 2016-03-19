@@ -28,9 +28,15 @@ gem 'koala', '~> 2.2'
 gem 'omniauth-facebook'
 
 # Use polymer
-gem 'polymer-rails', '~> 1.0'
-# gem 'polymer-paper-rails'
-gem 'polymer-elements-rails', '~>1.0.0'
+# gem 'polymer-rails', :github => 'alchapone/polymer-rails', :branch => '1.0.x'
+# # gem 'polymer-paper-rails'
+# gem 'polymer-elements-rails', '~>1.0.0'
+# gem 'polymer-iron-rails', :git => "git://github.com/vsimonian/polymer-iron-rails.git"
+# gem 'polymer-paper-rails', :git => "git://github.com/vsimonian/polymer-paper-rails.git"
+# gem 'polymer-neon-rails', :git => "git://github.com/vsimonian/polymer-neon-rails.git"
+
+# gem 'bower-rails'
+gem 'emcee'
 
 # Use font awesome & bootstrap
 gem "font-awesome-rails"
@@ -45,6 +51,7 @@ gem 'bootstrap3-datetimepicker-rails', '~> 4.17.37'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt-ruby', '~>3.0.0', :require => 'bcrypt'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
@@ -64,4 +71,6 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
+
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
 
