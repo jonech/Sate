@@ -5,13 +5,24 @@
 <html>
 <head>
   <title>Sate</title>
-  <%= stylesheet_link_tag    'default', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'default', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    "default", media: "all" %>
+  <%= javascript_include_tag "default" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+<div id = "container">
+	<div id = "user_nav">
+  <% if current_user %>
+    Signed in as <strong><%= current_user.name %></strong>!
+    <%= link_to "Sign out", signout_path, id: "sign_out" %>
+  <% else %>
+    <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
+  <% end %>
+</div>
+	<%flash.each do |name, msg| %>
+	<%= content_tag :div, msg, id: "flash_#{name}" %>
+  <%end%>
 <%= yield %>
-
+</div>
 </body>
 </html>
