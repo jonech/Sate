@@ -5,3 +5,16 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+Events = Event.create([
+    { name: 'Food Truck Festival',
+      place: '501, Swanston Street',
+      description: 'Good food awaits',
+      end_time: '7.30 am',
+      organisation: 'Youth Charity',
+      like: 10,
+      lat: 10000,
+      long: 10000,
+      imageurl: 'http://wallpapershome.com/images/pages/pic_h/8017.jpg',
+      org_link: 'http://google.com'}
+    ])
+Comments = Comment.create ([{event_id: 1, text: 'hello, there!'}, {event_id: 1, text: 'hello world!'}])

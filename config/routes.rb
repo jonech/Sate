@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  get 'welcome/loginpage'
+  resources :events
   #get 'welcome/loginpage'
   match ':controller(/:action(/:id))', :via => :get
 
@@ -7,6 +10,7 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'welcome#loginpage'
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
