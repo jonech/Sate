@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
 
   get 'welcome/loginpage'
+
   resources :events
   #get 'welcome/loginpage'
+
+  get 'picture' => 'picture#display_pictures'
+
   match ':controller(/:action(/:id))', :via => :get
 
   # The priority is based upon order of creation: first created -> highest priority.

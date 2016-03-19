@@ -5,10 +5,11 @@ require 'json'
 
 @MELB_UNI_FOOD_COOP_ID = 151718798174562
 @MELB_BEER_FOOD_FEST = 399600923500940
-@oauth_access_token = "CAACEdEose0cBAHttGw8w3uurnRTcxBCfGjxGZBmTzpkwZBZC9KPvVbdZCnKKaujGcQLT5PDJt0IcCMfxUtZAEcrIw5xm5ZATdJzUNXMIQa4XZAUZC62ak7AM9T0PgP2IHcWM4423dEE8DtCGjv3BIZBPbXwBvymXCvAkbKBrbfZCL0XFIZBdcvZCeVVUEA0GBeAlkX95dyxM9I1zuBHVkJdSwrqE"
+@MELB_FOOD_WINE_FEST = 164585291465
+@oauth_access_token = "CAACEdEose0cBANyIz4ZCZCY8olPjvHT2nPhJLsMZA1NAO4Kly5lHaODZC09figlDxTNVbzjBpn3QBrqb7fRauWIgCpyE5ZBsjDojqkZA1UclB6ZB0dLYWyek6dDvKLflCelTQy70qDtNh9ZCj9FIkA1dnLGcSjxwSmp8rNjnSwHhirftT5DBKWZBUAyAjzQzq2ZBsfse2cgchyLgZDZD"
 
 
-@ALL_SITE = [@MELB_UNI_FOOD_COOP_ID, @MELB_BEER_FOOD_FEST]
+@ALL_SITE = [@MELB_UNI_FOOD_COOP_ID, @MELB_BEER_FOOD_FEST, @MELB_FOOD_WINE_FEST]
 
 namespace :fbscrape do
 
@@ -56,14 +57,27 @@ namespace :fbscrape do
 				end
 
 				if (f["link"] != nil)
-					imageurl = f["link"]
+					url = f["link"]
+					
+					# only store image url if the feed has picture
+					if /photos/.match(url)
+						doc = Nokogiri::HTML(open(url))
+						shorten = doc.css(".hidden_elem").to_s.gsub!(/.*?(?=uiScaledImageContainer)/im,"")
+						shorten = shorten.to_s.sub(/.*(uiScaledImageContainer).*(src\=\")/, '')
+						shorten = shorten.to_s.sub(/((\"\s(alt))|(\"\s(style))).*/im,'')
+
+						while (/\&amp\;/.match(shorten))
+							shorten = shorten.to_s.sub(/\&amp\;/,'&')
+						end
+					end
+					#puts shorten
 				elsif (f["picture"] != nil)
 					imageurl = f["picture"]
 				end
 
 				# save to database
 				Event.create(place: place, lat: lat, long: long, organisation: organisation,
-					description: description, like: like, imageurl: imageurl, org_link: org_link)
+					description: description, like: like, imageurl: shorten, org_link: org_link)
 			end
 		end
 	end
