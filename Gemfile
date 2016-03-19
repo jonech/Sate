@@ -36,6 +36,8 @@ gem 'omniauth-facebook'
 # gem 'polymer-neon-rails', :git => "git://github.com/vsimonian/polymer-neon-rails.git"
 
 # gem 'bower-rails'
+# gem 'emcee'
+
 
 # Use font awesome & bootstrap
 gem "font-awesome-rails"
@@ -73,3 +75,7 @@ end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
 
+
+gem 'semantic-ui-sass', github: 'doabit/semantic-ui-sass'
+
+gem 'compass', '~> 1.1', '>= 1.1.0.alpha.3'

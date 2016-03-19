@@ -1,47 +1,115 @@
 
 <div class="panel panel-primary">
-  <div class="panel-heading"><h1><%= @event && @event.name ? @event.name : "Sate" %></h1></div>
-<div>
-  <div id = "event-page" class="panel-heading"><h1><%= @event.name %></h1></div>
-  <div class="panel-body">
-    <div class="col-md-3">
-        <!--<p>Display photo here</p>-->
+    <div class="panel-heading">
+      <center>
+        <h1><%= @event && @event.name ? @event.name : "Sate" %></h1>
+      </center>
     </div>
-    <div class="col-md-9">
-      <div id = "event-details">
-      <ul>
-          <li>Place: <%= @event && @event.place ? @event.place : "Sate" %></li>
-          <li>Description: <%= @event && @event.description ? @event.description : "Sate" %></li>
-          <li>End Time: <%= @event && @event.end_time ? @event.end_time : "Sate" %></li>
-          <li>Organisation: <%= @event && @event.organisation ? @event.organisation : "Sate" %></li>
-          <li>Likes: <%= @event && @event.like ? @event.like : "Sate" %></li>
-      </ul>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-6">
-        <div class="container">
-          <div style='width: 610px;'>
-            <center>
-              <div id="map" style='width: 610px; height: 200px;'></div>
-            </center>
+    <!-- <div id = "event-page" class="panel-heading"><h1><%= @event.name %></h1></div> -->
+      <div class="panel-body">
+        <table class="table table-bordered" width="100%">
+          <tr>
+            <td width="40%">Event Information</td>
+            <td>
+              <div class="row">
+                <center>
+                  <img class="feed-image" src="<%= @event.imageurl ? @event.imageurl : " " %>">
+                </center>
+                  <!--<p>Display photo here</p>-->
+              </div>
+              <div class="col-md-offset-4 col-md-4">
+                <table class="table table-hover">
+                  <tr>
+                    <th><center>Title</center></th>
+                    <th><center>Details</center></th>
+                  </tr>
+                  <tr>
+                    <td>Address &nbsp <i class="fa fa-book" style="float:right;"></i></td>
+                    <td><center><i><%= @event && @event.place ? @event.place : "Sate" %></i></center></td>
+                  </tr>
+                  <tr>
+                    <td>Description &nbsp <i class="fa fa-arrow-circle-right" style="float:right;"></i></td>
+                    <td><center><i><%= @event && @event.description ? @event.description : "Sate" %></i></center></td>
+                  </tr>
+                  <tr>
+                    <td>Ending at &nbsp <i class="fa fa-clock-o" style="float:right;"></i></td>
+                    <td><center><i><%= @event && @event.end_time ? @event.end_time : "Sate" %></i></center></td>
+                  </tr>
+                  <tr>
+                    <td>Organised by &nbsp <i class="fa fa-user" style="float:right;"></i></td>
+                    <td><center><i><%= @event && @event.organisation ? @event.organisation : "Sate" %></i></center></td>
+                  </tr>
+                  <tr>
+                    <td>Likes &nbsp <i class="fa fa-heart-o" style="float:right;"></i></td>
+                    <td><center><i><%= @event && @event.like ? @event.like : "Sate" %></i></center></td>
+                  </tr>
+                </table>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td width="40%">Event Location</td>
+            <td>
+              <div class="row">
+                <div class="container">
+                  <div style='width: 610px; margin: 0 auto;'>
+                      <div id="map" style='width: 610px; height: 300px;'></div>
+                  </div>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td width="40%">Bring me to the food!</td>
+            <td>
+              <div class="row">
+                <a href="#" id="uber-button">
+                  <div class="uber-button">
+                    <p id="uber-button-text">REQUEST RIDE</p>
+                    <p><center><a>Estimate ride?</a></center></p>
+                  </div>
+                </a>
+              </div>
+            </td>
+          </tr>
+        </table>
+
+<!--         <div class="row">
+          <div class="container">
+            <div style='width: 610px; margin: 0 auto;'>
+                <div id="map" style='width: 610px; height: 300px;'></div>
+            </div>
           </div>
-        </div>
-        <div class="uber-button">
-          <p id="uber-button-text">REQUEST RIDE</p>
-          <p><center><u>Estimate ride?</u></center></p>
-        </div>
+          <a href="#" id="uber-button">
+            <div class="uber-button">
+              <p id="uber-button-text">REQUEST RIDE</p>
+              <p><center><a>Estimate ride?</a></center></p>
+            </div>
+          </a>
+        </div> -->
       </div>
     </div>
-  </div>
 </div>
+
+<%= content_tag :div, class: "event_info", data: {event: @event} do %>
+<% end %>
 
 <script>
   $(document).ready(function(){
+    var event = $('.event_info').data('event');
     // initialize(<%= hash.inspect.html_safe %>);
     // gmap_show(<%= hash.inspect.html_safe %>);
-    initMap(<%= @event_hash.to_json.inspect.html_safe %>);
+    // initMap(<%= @event_hash.to_json.inspect.html_safe %>);
+    initMap(event);
   });
 </script>
 
-
+<!--           <div id = "event-details">
+          <ul>
+              <li>Place: <%= @event && @event.place ? @event.place : "Sate" %></li>
+              <li>Description: <%= @event && @event.description ? @event.description : "Sate" %></li>
+              <li>End Time: <%= @event && @event.end_time ? @event.end_time : "Sate" %></li>
+              <li>Organisation: <%= @event && @event.organisation ? @event.organisation : "Sate" %></li>
+              <li>Likes: <%= @event && @event.like ? @event.like : "Sate" %></li>
+          </ul>
+          </div> -->
