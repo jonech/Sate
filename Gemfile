@@ -36,7 +36,6 @@ gem 'omniauth-facebook'
 # gem 'polymer-neon-rails', :git => "git://github.com/vsimonian/polymer-neon-rails.git"
 
 # gem 'bower-rails'
-gem 'emcee'
 
 # Use font awesome & bootstrap
 gem "font-awesome-rails"
