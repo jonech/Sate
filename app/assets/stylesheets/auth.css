@@ -1,0 +1,15 @@
+
+.outer-auth {
+	padding: 0% 30%;
+}
+
+.auth-container {
+	margin: 20% 0%;
+	padding: 20px 0px;
+	text-align: center;
+	background-color: rgba(255, 255, 255, 0.8);
+}
+
+h1 {
+	font-size: 40px;
+}

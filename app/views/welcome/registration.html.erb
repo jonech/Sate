@@ -13,34 +13,32 @@
 	            </div>
 	            <div class="row">
 	                <div class="col-sm-6 col-sm-offset-3 form-box">
-	                    <div class="form-bottom">
-		                    <form role="form" action="" method="post" class="login-form">
-		                    	<div class="form-group">
-		                    		<label class="sr-only" for="form-firstname">FirstName</label>
-		                        	<input type="text" name="form-username" placeholder="First Name..." class="form-username form-control" id="form-username">
-		                        </div>
-		                        <div class="form-group">
-		                    		<label class="sr-only" for="form-lastname">LastName</label>
-		                        	<input type="text" name="form-username" placeholder="Last Name..." class="form-username form-control" id="form-username">
-		                        </div>
-		                        <div class="form-group">
-		                    		<label class="sr-only" for="form-email">Email</label>
-		                        	<input type="text" name="form-username" placeholder="Email..." class="form-username form-control" id="form-username">
-		                        </div>
-		                    	<div class="form-group">
-		                    		<label class="sr-only" for="form-dob">DOB</label>
-		                        	<input type="text" name="form-username" placeholder="Date of Birth..." class="form-username form-control" id="form-username">
-		                        </div>
-		                        <div class="form-group">
-		                        	<label class="sr-only" for="form-password">Password</label>
-		                        	<input type="password" name="form-password" placeholder="Create a password..." class="form-password form-control" id="form-password">
-		                        </div>
-		                        <div class="form-group">
-		                        	<label class="sr-only" for="form-password">Password</label>
-		                        	<input type="password" name="form-password" placeholder="Confirm your password" class="form-password form-control" id="form-password">
-		                        </div>
-		                    </form>
-	                    </div>
+
+	                	<%= form_for(@web_user) do |f| %>
+		                    <div class="form-bottom">
+			                    <form role="form" action="f.submit" method="post" class="login-form">
+			                    	<div class="form-group">
+			                    		<label class="sr-only" for="form-firstname">Name</label>
+			                        	<input type="text" name="form-username" placeholder="First Name..." class="form-username form-control" id="form-username">
+			                        	<%= f.text_field :name %>
+			                        </div>
+
+\
+			                        <div class="form-group">
+			                        	<label class="sr-only" for="form-password">Password</label>
+			                        	<input type="password" name="form-password" placeholder="Create a password..." class="form-password form-control" id="form-password">
+			                        	<%= f.text_field :password %>
+			                        </div>
+			                        <div class="form-group">
+			                        	<label class="sr-only" for="form-company">Company</label>
+			                        	<input type="text" name="form-company" placeholder="Confirm your company" class="form-company form-control" id="form-company">
+			                        	<%= f.text_field :company %>
+			                        </div>
+			                    </form>
+		                    </div>
+		                   <% end %>
+
+
 	                </div>
 	            </div>
 	            <div class = "text-center">
