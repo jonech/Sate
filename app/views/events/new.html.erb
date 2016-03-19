@@ -1,16 +1,38 @@
 <h1>New Event</h1>
-
+<% flash.each do |key, msg| %>
+    <%= content_tag :div, msg, :class => [key, " message"], :id => "notice_#{key}" %>
+<% end %>
 <%= form_for :event, url: events_path do |f| %>
   <p>
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
   </p>
  
   <p>
-    <%= f.label :text %><br>
-    <%= f.text_area :text %>
+    <%= f.label :place %><br>
+    <%= f.text_area :place %>
   </p>
- 
+
+  <p>
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </p>
+
+  <p>
+    <%= f.label :organisation %><br>
+    <%= f.text_area :organisation %>
+  </p>
+
+  <p>
+    <%= f.label :cover_photo %><br>
+    <%= f.file_field :cover_photo %>
+  </p>
+
+  <p>
+    <%= f.label :end_time %><br>
+    <%= f.datetime_field :end_time %>
+  </p>
+
   <p>
     <%= f.submit %>
   </p>
