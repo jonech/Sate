@@ -68,3 +68,4 @@ ActiveRecord::Schema.define(version: 20160319204615) do
 
   add_foreign_key "events", "web_users"
 end
+
