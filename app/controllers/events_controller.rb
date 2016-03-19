@@ -4,10 +4,14 @@ class EventsController < ApplicationController
 
     def create
         # temporary upload image to public/uploads dir
-        uploaded_io = params[:event][:cover_photo]
-        File.open(Rails.root.join('public', 'uploads', uploaded_io.original_filename), 'wb') do |file| 
-            file.write(uploaded_io.read)
+        if (params[:event][:cover_photo] != nil)
+            uploaded_io = params[:event][:cover_photo]
+            File.open(Rails.root.join('public', 'uploads', uploaded_io.original_filename), 'wb') do |file| 
+                file.write(uploaded_io.read)
+            end
         end
+
+        # handle file uploads
 
         # handle saving entry to ActiveRecord
         @event = Event.new
@@ -17,6 +21,8 @@ class EventsController < ApplicationController
         @event.organisation = params[:event][:organisation]
         @event.end_time = params[:event][:end_time]
 
+        @event.save
+
         # render plain: params[:event].inspect
         redirect_to @event
     end
@@ -25,5 +31,7 @@ class EventsController < ApplicationController
     end
 
     def show
+        @event = Event.find_by(id: params[:id])
+        @comments = Event.comments.all
     end
 end
