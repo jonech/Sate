@@ -1,0 +1,31 @@
+
+
+#body {
+	background: url(assets/images/loginpage.jpg);
+}
+
+#header {
+	text-align: center;
+	font-family: Calibri,sans-serif;
+	padding: 30px;
+}
+
+#introduction {
+	text-align: center;
+}
+
+#login-form {
+	font-style: italic;
+	padding: 10px;
+}
+
+#authentication {
+	text-align: center;
+	padding: 10px;
+}
+
+.container {
+	#introduction, #login-form {
+		
+	}
+}

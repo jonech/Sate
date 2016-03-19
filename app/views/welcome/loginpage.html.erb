@@ -5,14 +5,14 @@
         <title>Sate</title>
         <meta name="viewpoint" content="width=device-width, initial-scale=1.0"/>
         <link href = "assets/stylesheets/bootstrap.min.css" type = "text/css" rel = "stylesheet"/>
-        <link href = "assets/sass/styles.css" type = "text/css" rel = "stylesheet"/>
+        <link href = "assets/stylesheets/styles.css" type = "text/css" rel = "stylesheet"/>
     </head>
 
     <body>
 
-		<script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
+		<!--<script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
 		<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-		<script src = "js/bootsctrap.js"></script>
+		<script src = "js/bootsctrap.js"></script>-->
 
         <!-- Top content -->
         <div class="top-content">
@@ -20,22 +20,17 @@
             <div class="inner-bg">
                 <div class="container">
                     <div class="row">
-                        <div id="header" class="text-center">
+                        <div id="header">
                             <h1><strong>Welcome to Sate!</strong></h1>
-                        </div>
-                        <div class="text-center description">
+                        </div>      
+                        <div id="introduction">
                             <p>
 	                            <i>Discover some of the best food events in Melbourne with us!</i>
                             </p>
                         </div>
                     </div>
-                    <div class="row">
+                    <div id ="login-form" class="row">
                         <div class="col-sm-6 col-sm-offset-3 form-box">
-                        	<div class="form-top">
-                        		<div class="form-top-right">
-                        			<i class="fa fa-key"></i>
-                        		</div>
-                            </div>
                             <div class="form-bottom">
 			                    <form role="form" action="" method="post" class="login-form">
 			                    	<div class="form-group">
@@ -46,15 +41,11 @@
 			                        	<label class="sr-only" for="form-password">Password</label>
 			                        	<input type="password" name="form-password" placeholder="Enter your password" class="form-password form-control" id="form-password">
 			                        </div>
-			                        <!--<div class="col-sm-6 col-sm-offset-4 form-box">
-			                        	<button type="submit" class="btn">Sign in!</button>
-			                        	<button type="submit" class="btn">Sign up!</button>
-			                        </div>-->
 			                    </form>
 		                    </div>
                         </div>
                     </div>
-                    <div class = "text-center">
+                    <div id = "authentication">
                     	<a class = "btn btn-warning">Sign in!</a>
                     	<a class = "btn btn-info">Sign up! </a>
                 	</div>
