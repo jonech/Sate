@@ -5,9 +5,9 @@ Sate::Application.routes.draw do
 
     resources :sessions, only: [:create, :destroy] 
       resource :welcome, only: [:show]
-    root to: "welcome#loginpage"
+    root to: "welcome#home"
     get 'picture' => 'picture#display_pictures'
-    get 'welcome/loginpage'
+    get 'welcome/home'
     resources :events
     #get 'welcome/loginpage'
     match ':controller(/:action(/:id))', :via => :get
