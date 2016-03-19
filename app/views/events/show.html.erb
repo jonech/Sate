@@ -1,0 +1,28 @@
+<h1>
+  <%= @event.name %>
+</h1>
+
+<div class="col-md-3">
+    <p>Display photo here</p>
+</div>
+
+<div class="col-md-9">
+  <ul>
+      <li>Place: <%= @event.name %></li>
+      <li>Description: <%= @event.description %></li>
+      <li>End Time: <%= @event.end_time %></li>
+      <li>Organisation: <%= @event.organisation %></li>
+      <li>Likes: <%= @event.like %></li>
+  </ul>
+</div>
+
+<h2>Comments</h2>
+<% if @comments == nil %>
+<p>No comments for this event. Display textbox here.</p>
+<% else %>
+<%= @comments.each do |comment| %>
+  <ul>
+      <li><%= comment %></li>
+  </ul>
+<% end %>
+<% end %>

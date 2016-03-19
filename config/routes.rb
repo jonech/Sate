@@ -6,6 +6,12 @@ Sate::Application.routes.draw do
     resources :sessions, only: [:create, :destroy] 
       resource :welcome, only: [:show]
     root to: "welcome#loginpage"
+
+    get 'welcome/loginpage'
+    resources :events
+    #get 'welcome/loginpage'
+    match ':controller(/:action(/:id))', :via => :get
+    
 end
 #Rails.application.routes.draw do
 
@@ -19,11 +25,14 @@ end
   #resources :events
 
 
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
   #root 'welcome#loginpage'
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
