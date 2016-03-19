@@ -32,6 +32,6 @@ class EventsController < ApplicationController
 
     def show
         @event = Event.find_by(id: params[:id])
-        @comments = Event.comments.all
+        @comments = @event.comments.all
     end
 end
