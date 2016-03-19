@@ -111,7 +111,6 @@ GEM
       oauth2 (~> 1.0)
       omniauth (~> 1.2)
     pg (0.18.3)
-    pg (0.18.3-x64-mingw32)
     polymer-elements-rails (1.0.1)
       polymer-rails (~> 1.0, >= 1.0.3)
     polymer-rails (1.2.4.1)
