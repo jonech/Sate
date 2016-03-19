@@ -28,8 +28,9 @@ gem 'koala', '~> 2.2'
 gem 'omniauth-facebook'
 
 # Use polymer
-gem 'polymer-rails'
-gem 'polymer-paper-rails'
+gem 'polymer-rails', '~> 1.0'
+# gem 'polymer-paper-rails'
+gem 'polymer-elements-rails', '~>1.0.0'
 
 # Use font awesome & bootstrap
 gem "font-awesome-rails"
