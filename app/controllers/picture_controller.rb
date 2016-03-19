@@ -18,6 +18,14 @@ class PictureController < ApplicationController
     	end
     end
 
+    def filter_top_pictures
+        @events = Event.order(like: :desc)
+
+        respond_to do |format|
+            format.html {render template: "test_picture"}
+        end
+    end
+
     private
 	    # Use callbacks to share common setup or constraints between actions.
 	    def set_event

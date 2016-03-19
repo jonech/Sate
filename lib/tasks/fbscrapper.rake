@@ -6,7 +6,7 @@ require 'json'
 @MELB_UNI_FOOD_COOP_ID = 151718798174562
 @MELB_BEER_FOOD_FEST = 399600923500940
 @MELB_FOOD_WINE_FEST = 164585291465
-@oauth_access_token = "CAACEdEose0cBANyIz4ZCZCY8olPjvHT2nPhJLsMZA1NAO4Kly5lHaODZC09figlDxTNVbzjBpn3QBrqb7fRauWIgCpyE5ZBsjDojqkZA1UclB6ZB0dLYWyek6dDvKLflCelTQy70qDtNh9ZCj9FIkA1dnLGcSjxwSmp8rNjnSwHhirftT5DBKWZBUAyAjzQzq2ZBsfse2cgchyLgZDZD"
+@oauth_access_token = "CAACEdEose0cBAIyP1rKK89EJcadGUNr75WbXUZCZC5PiTeFeLMOw6ZCigLbVFAGKdAXQKHH2lWbGbPvc1rNFnvIHOojzuDs5H5w3ooAs4pZChQ9rJUda6jCCDTDRbX2eSgakF4ZCqGyomZC2nJXtWPAcLzN9VR52ociyHfgNnFeJI1pvPfcr2g6rmPGer0ZCZBbifjUvx75HewZDZD"
 
 
 @ALL_SITE = [@MELB_UNI_FOOD_COOP_ID, @MELB_BEER_FOOD_FEST, @MELB_FOOD_WINE_FEST]
@@ -54,9 +54,12 @@ namespace :fbscrape do
 				
 				if (f["likes"] != nil && f["likes"]["data"] != nil)
 					like = f["likes"]["data"].length
+				else
+					like = 0
 				end
 
 				if (f["link"] != nil)
+					page_link = f["link"]
 					url = f["link"]
 					
 					# only store image url if the feed has picture
@@ -76,8 +79,8 @@ namespace :fbscrape do
 				end
 
 				# save to database
-				Event.create(place: place, lat: lat, long: long, organisation: organisation,
-					description: description, like: like, imageurl: shorten, org_link: org_link)
+				Event.create(place: place, lat: lat, long: long, organisation: organisation, description: description, 
+					like: like, imageurl: shorten, org_link: org_link, page_link: page_link)
 			end
 		end
 	end
