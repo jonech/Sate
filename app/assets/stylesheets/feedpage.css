@@ -1,0 +1,43 @@
+.feed-container {
+	font-size: 20px;
+	margin: 25px;
+	padding: 0% 20%;
+
+	color: #e6e6e6;
+	font-family: ‘Palatino Linotype’, ‘Book Antiqua’, Palatino, serif;
+	text-align: center;
+
+}
+
+.inner-feed-container {
+	margin: 15px;
+	padding: 20px 15%;
+	content: 10px;
+	background-color: #333333;
+	vertical-align: top;
+}
+
+.desc-container {
+	margin: 10px 0px;
+	padding: 2% 10%;
+	content: auto;
+	background-color: #4d4d4d;
+}
+
+.feed-image {
+    width: 350px; /* you can use % */
+    height: auto;
+    
+}
+
+.image-container {
+	content: 10px 2px;
+	padding: 0px 0px 10px 0px;
+}
+
+
+
+
+.fa-heart:hover {
+	color: #ff5050;
+}
