@@ -18,6 +18,23 @@
 @import "font-awesome";
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
+@import 'feedpage';
+
+.uber-button {
+    background-image: url('uber_button_grey.png');
+    background-size: cover;
+    width: 300px;
+    height: 44px;
+    margin: 0 auto;
+}
+
+#uber-button-text {
+    text-align: right;
+    margin-top: 2%;
+    padding-top: 12px;
+    padding-right: 14px;
+    color: #000;
+}
 
 @import "semantic-ui";
 @import "semantic-ui/collections/menu";

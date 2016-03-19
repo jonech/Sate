@@ -5,10 +5,11 @@ require 'json'
 
 @MELB_UNI_FOOD_COOP_ID = 151718798174562
 @MELB_BEER_FOOD_FEST = 399600923500940
-# @oauth_access_token = "CAACEdEose0cBAHttGw8w3uurnRTcxBCfGjxGZBmTzpkwZBZC9KPvVbdZCnKKaujGcQLT5PDJt0IcCMfxUtZAEcrIw5xm5ZATdJzUNXMIQa4XZAUZC62ak7AM9T0PgP2IHcWM4423dEE8DtCGjv3BIZBPbXwBvymXCvAkbKBrbfZCL0XFIZBdcvZCeVVUEA0GBeAlkX95dyxM9I1zuBHVkJdSwrqE"
-@oauth_access_token = "CAAYcTdb4G3MBAH0wD4ZAkD2A8ZBwFLN3qMii3hlg8Nc4zHbTNp2Bvi6nwstLZAMkdcuD6aFZBH2bFWPZARiv0ifVv1JWP1UExpTmpCnJEPMzxWPXZBgz2xhr1aW0TOqm7kG2Wn2z7OJ9A9qtpc7AQ82GknZCtrPhGZCuAY0ZCPnoWhwKgbtNAWekalf7JfNoa4aTxYtZAdkYzx4SB5FeMAAqoU"
+@MELB_FOOD_WINE_FEST = 164585291465
+@oauth_access_token = "CAACEdEose0cBAIyP1rKK89EJcadGUNr75WbXUZCZC5PiTeFeLMOw6ZCigLbVFAGKdAXQKHH2lWbGbPvc1rNFnvIHOojzuDs5H5w3ooAs4pZChQ9rJUda6jCCDTDRbX2eSgakF4ZCqGyomZC2nJXtWPAcLzN9VR52ociyHfgNnFeJI1pvPfcr2g6rmPGer0ZCZBbifjUvx75HewZDZD"
 
-@ALL_SITE = [@MELB_UNI_FOOD_COOP_ID, @MELB_BEER_FOOD_FEST]
+
+@ALL_SITE = [@MELB_UNI_FOOD_COOP_ID, @MELB_BEER_FOOD_FEST, @MELB_FOOD_WINE_FEST]
 
 namespace :fbscrape do
 
@@ -53,17 +54,33 @@ namespace :fbscrape do
 				
 				if (f["likes"] != nil && f["likes"]["data"] != nil)
 					like = f["likes"]["data"].length
+				else
+					like = 0
 				end
 
 				if (f["link"] != nil)
-					imageurl = f["link"]
+					page_link = f["link"]
+					url = f["link"]
+					
+					# only store image url if the feed has picture
+					if /photos/.match(url)
+						doc = Nokogiri::HTML(open(url))
+						shorten = doc.css(".hidden_elem").to_s.gsub!(/.*?(?=uiScaledImageContainer)/im,"")
+						shorten = shorten.to_s.sub(/.*(uiScaledImageContainer).*(src\=\")/, '')
+						shorten = shorten.to_s.sub(/((\"\s(alt))|(\"\s(style))).*/im,'')
+
+						while (/\&amp\;/.match(shorten))
+							shorten = shorten.to_s.sub(/\&amp\;/,'&')
+						end
+					end
+					#puts shorten
 				elsif (f["picture"] != nil)
 					imageurl = f["picture"]
 				end
 
 				# save to database
-				Event.create(place: place, lat: lat, long: long, organisation: organisation,
-					description: description, like: like, imageurl: imageurl, org_link: org_link)
+				Event.create(place: place, lat: lat, long: long, organisation: organisation, description: description, 
+					like: like, imageurl: shorten, org_link: org_link, page_link: page_link)
 			end
 		end
 	end

@@ -1,0 +1,18 @@
+<div class = "feed-container">
+
+    <% @events.each do |e| %>
+		<div class="inner-feed-container">
+			<div class="image-container">
+			<img class="feed-image" src="<%= e.imageurl ? e.imageurl : " " %>">
+			</div>
+			<p><%= e.name ? e.name : "" %></p>
+			<p><%= e.place ? e.place : "" %></p>
+			<p><%= e.organisation ? e.organisation : "" %></p>
+			<div class="desc-container"><p><%= e.description ? e.description : "We still love you!" %></p></div>
+			<p><a href="<%= e.page_link ? e.page_link : ""%>" class="btn btn-danger">More details</a></p>
+
+
+  		</div>
+    <% end %>
+
+</div>

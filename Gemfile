@@ -38,6 +38,7 @@ gem 'omniauth-facebook'
 # gem 'bower-rails'
 # gem 'emcee'
 
+
 # Use font awesome & bootstrap
 gem "font-awesome-rails"
 gem 'bootstrap-sass', '~> 3.3.5'

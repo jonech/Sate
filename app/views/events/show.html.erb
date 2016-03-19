@@ -1,28 +1,47 @@
-<h1>
-  <%= @event.name %>
-</h1>
 
-<div class="col-md-3">
-    <p>Display photo here</p>
+<div class="panel panel-primary">
+  <div class="panel-heading"><h1><%= @event && @event.name ? @event.name : "Sate" %></h1></div>
+<div>
+  <div id = "event-page" class="panel-heading"><h1><%= @event.name %></h1></div>
+  <div class="panel-body">
+    <div class="col-md-3">
+        <!--<p>Display photo here</p>-->
+    </div>
+    <div class="col-md-9">
+      <div id = "event-details">
+      <ul>
+          <li>Place: <%= @event && @event.place ? @event.place : "Sate" %></li>
+          <li>Description: <%= @event && @event.description ? @event.description : "Sate" %></li>
+          <li>End Time: <%= @event && @event.end_time ? @event.end_time : "Sate" %></li>
+          <li>Organisation: <%= @event && @event.organisation ? @event.organisation : "Sate" %></li>
+          <li>Likes: <%= @event && @event.like ? @event.like : "Sate" %></li>
+      </ul>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="container">
+          <div style='width: 610px;'>
+            <center>
+              <div id="map" style='width: 610px; height: 200px;'></div>
+            </center>
+          </div>
+        </div>
+        <div class="uber-button">
+          <p id="uber-button-text">REQUEST RIDE</p>
+          <p><center><u>Estimate ride?</u></center></p>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
-<div class="col-md-9">
-  <ul>
-      <li>Place: <%= @event.name %></li>
-      <li>Description: <%= @event.description %></li>
-      <li>End Time: <%= @event.end_time %></li>
-      <li>Organisation: <%= @event.organisation %></li>
-      <li>Likes: <%= @event.like %></li>
-  </ul>
-</div>
+<script>
+  $(document).ready(function(){
+    // initialize(<%= hash.inspect.html_safe %>);
+    // gmap_show(<%= hash.inspect.html_safe %>);
+    initMap(<%= @event_hash.to_json.inspect.html_safe %>);
+  });
+</script>
 
-<h2>Comments</h2>
-<% if @comments == nil %>
-<p>No comments for this event. Display textbox here.</p>
-<% else %>
-<%= @comments.each do |comment| %>
-  <ul>
-      <li><%= comment %></li>
-  </ul>
-<% end %>
-<% end %>
+

@@ -5,9 +5,12 @@ Sate::Application.routes.draw do
 
     resources :sessions, only: [:create, :destroy] 
       resource :welcome, only: [:show]
-    root to: "welcome#loginpage"
 
+    root to: "welcome#loginpage"
+    get '/all_events' => 'picture#display_pictures'
+    get '/top_events' => 'picture#filter_top_pictures'
     get 'welcome/loginpage'
+
     resources :events
     #get 'welcome/loginpage'
     match ':controller(/:action(/:id))', :via => :get
@@ -20,11 +23,6 @@ end
   #get 'sessions/destroy'
 
   #get 'home/show'
-
-  #get 'welcome/loginpage'
-  #resources :events
-
-
 
 
   # The priority is based upon order of creation: first created -> highest priority.

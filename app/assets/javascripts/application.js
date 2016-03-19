@@ -10,12 +10,20 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require webcomponentsjs/webcomponents-lite
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require uber
+//= require underscore
+//= require gmaps/google
+//= require googlemap
 //= require_tree .
+
 // Loads all Semantic javascripts
 //= require semantic-ui
 //= require semantic-ui/modal
 //= require semantic-ui/dropdownlayout
+
+//= require_self
+
+
