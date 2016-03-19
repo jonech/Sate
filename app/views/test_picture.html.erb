@@ -1,13 +1,18 @@
-<div class = "container">
-	<tr>
-	    <% @pictures.each do |p| %>
-	      
-	      <td>
-	        <img src="<%= p.imageurl %>">
-	        <%= p.imageurl %>
-	      </td>
-	    <% end %>
-	</tr>
+<div class = "feed-container">
 
-<br>
+    <% @events.each do |e| %>
+		<div class="inner-feed-container">
+			<div class="image-container">
+			<img class="feed-image" src="<%= e.imageurl ? e.imageurl : " " %>">
+			</div>
+			<p><%= e.name ? e.name : "" %></p>
+			<p><%= e.place ? e.place : "" %></p>
+			<p><%= e.organisation ? e.organisation : "" %></p>
+			<div class="desc-container"><p><%= e.description ? e.description : "We still love you!" %></p></div>
+			<p><i class="fa fa-heart"></i>&nbsp<%= e.like ? e.like : "" %></p>
+
+
+  		</div>
+    <% end %>
+
 </div>
