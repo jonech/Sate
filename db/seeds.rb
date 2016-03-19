@@ -17,3 +17,4 @@ Events = Event.create([
       imageurl: 'http://wallpapershome.com/images/pages/pic_h/8017.jpg',
       org_link: 'http://google.com'}
     ])
+Comments = Comment.create ([{event_id: 1, text: 'hello, there!'}, {event_id: 1, text: 'hello world!'}])
