@@ -1,9 +1,10 @@
 .feed-container {
 	font-size: 20px;
 	margin: 25px;
-	padding: 0% 20%;
+	padding: 3% 20%;
 
-	color: #e6e6e6;
+	text-shadow: .2px .2px #262626;
+	color: #333333;
 	font-family: ‘Palatino Linotype’, ‘Book Antiqua’, Palatino, serif;
 	text-align: center;
 
@@ -13,7 +14,7 @@
 	margin: 15px;
 	padding: 20px 15%;
 	content: 10px;
-	background-color: #333333;
+	background-color: rgba(255,255,255,0.8);
 	vertical-align: top;
 }
 
@@ -21,7 +22,7 @@
 	margin: 10px 0px;
 	padding: 2% 10%;
 	content: auto;
-	background-color: #4d4d4d;
+	background-color: rgba(255,255,255,0.95);
 }
 
 .feed-image {
