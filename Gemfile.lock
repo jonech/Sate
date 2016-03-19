@@ -109,15 +109,9 @@ GEM
       oauth2 (~> 1.0)
       omniauth (~> 1.2)
     pg (0.18.3)
-<<<<<<< HEAD
-    polymer-paper-rails (0.2.6)
-      polymer-rails (~> 0.2.5)
-    polymer-rails (0.2.8)
-=======
     polymer-elements-rails (1.0.1)
       polymer-rails (~> 1.0, >= 1.0.3)
     polymer-rails (1.2.4.1)
->>>>>>> b9286f8553b09de6efb9bad0c8d9ae8cbc9c951e
       nokogiri (~> 1.6)
       nokogumbo (= 1.4.2)
       rails (>= 3.1.0)
