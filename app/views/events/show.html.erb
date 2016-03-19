@@ -1,28 +1,55 @@
-<h1>
-  <%= @event.name %>
-</h1>
 
-<div class="col-md-3">
-    <p>Display photo here</p>
+<div class="panel panel-primary">
+  <div class="panel-heading"><h1><%= @event.name %></h1></div>
+  <div class="panel-body">
+    <div class="col-md-3">
+        <p>Display photo here</p>
+    </div>
+    <div class="col-md-9">
+      <ul>
+          <li>Place: <%= @event.place %></li>
+          <li>Description: <%= @event.description %></li>
+          <li>End Time: <%= @event.end_time %></li>
+          <li>Organisation: <%= @event.organisation %></li>
+          <li>Likes: <%= @event.like %></li>
+      </ul>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="container">
+          <div style='width: 610px;'>
+            <center>
+              <div id="map" style='width: 610px; height: 200px;'></div>
+            </center>
+          </div>
+        </div>
+        <div class="uber-button">
+          <p id="uber-button-text">Request Ride</p>
+          <p><center><u>Estimate ride?</u></center></p>
+        </div>
+      </div>
+      <div class="col-md-6">
+      <h2>Comments</h2>
+      <% if @comments == nil %>
+      <p>No comments for this event. Display textbox here.</p>
+      <% else %>
+      <%= @comments.each do |comment| %>
+        <ul>
+            <li><%= comment %></li>
+        </ul>
+      <% end %>
+      <% end %>
+      </div>
+    </div>
+  </div>
 </div>
 
-<div class="col-md-9">
-  <ul>
-      <li>Place: <%= @event.name %></li>
-      <li>Description: <%= @event.description %></li>
-      <li>End Time: <%= @event.end_time %></li>
-      <li>Organisation: <%= @event.organisation %></li>
-      <li>Likes: <%= @event.like %></li>
-  </ul>
-</div>
+<script>
+  $(document).ready(function(){
+    initialize();
+    var event = <%= @event_hash.inspect.html_safe %>
+    gmap_show(event);
+  });
+</script>
 
-<h2>Comments</h2>
-<% if @comments == nil %>
-<p>No comments for this event. Display textbox here.</p>
-<% else %>
-<%= @comments.each do |comment| %>
-  <ul>
-      <li><%= comment %></li>
-  </ul>
-<% end %>
-<% end %>
+
