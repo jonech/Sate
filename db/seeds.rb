@@ -14,7 +14,6 @@ Events = Event.create([
       like: 10,
       lat: 10000,
       long: 10000,
-      imageurl: 'http://wallpapershome.com/images/pages/pic_h/8017.jpg'
-      org_link: 'http://google.com'
-    }
+      imageurl: 'http://wallpapershome.com/images/pages/pic_h/8017.jpg',
+      org_link: 'http://google.com'}
     ])
