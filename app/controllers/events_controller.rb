@@ -35,10 +35,12 @@ class EventsController < ApplicationController
     def show
         event = Event.find_by(id: params[:id])
         @event = event
-        @comments = @event.comments.all
+
+        #@comments = @event.comments.all
         hash = {}
         # event.instance_variables.each_with_object({}) {|var, hash| hash[var.to_s.delete("@")] = event.instance_variable_get(var)}
         event.instance_variables.each {|var| hash[var.to_s.delete("@")] = event.instance_variable_get(var) }
         @event_hash = hash
+
     end
 end

@@ -9,7 +9,7 @@
 			<p><%= e.place ? e.place : "" %></p>
 			<p><%= e.organisation ? e.organisation : "" %></p>
 			<div class="desc-container"><p><%= e.description ? e.description : "We still love you!" %></p></div>
-			<p><i class="fa fa-heart"></i>&nbsp<%= e.like ? e.like : "" %></p>
+			<p><a href="<%= e.page_link ? e.page_link : ""%>" class="btn btn-danger">More details</a></p>
 
 
   		</div>

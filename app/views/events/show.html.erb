@@ -1,4 +1,6 @@
 
+<div class="panel panel-primary">
+  <div class="panel-heading"><h1><%= @event && @event.name ? @event.name : "Sate" %></h1></div>
 <div>
   <div id = "event-page" class="panel-heading"><h1><%= @event.name %></h1></div>
   <div class="panel-body">
@@ -8,11 +10,11 @@
     <div class="col-md-9">
       <div id = "event-details">
       <ul>
-          <li>Place: <%= @event.place %></li>
-          <li>Description: <%= @event.description %></li>
-          <li>End Time: <%= @event.end_time %></li>
-          <li>Organisation: <%= @event.organisation %></li>
-          <li>Likes: <%= @event.like %></li>
+          <li>Place: <%= @event && @event.place ? @event.place : "Sate" %></li>
+          <li>Description: <%= @event && @event.description ? @event.description : "Sate" %></li>
+          <li>End Time: <%= @event && @event.end_time ? @event.end_time : "Sate" %></li>
+          <li>Organisation: <%= @event && @event.organisation ? @event.organisation : "Sate" %></li>
+          <li>Likes: <%= @event && @event.like ? @event.like : "Sate" %></li>
       </ul>
       </div>
     </div>
