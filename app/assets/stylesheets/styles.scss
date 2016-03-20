@@ -121,8 +121,10 @@ ul li {
 	font-family: Calibri,sans-serif;
 	font-size: 200px;
 	text-align: center;
-	color: white;
+	color: gray;
 }
 
-
+.container >.row > .col-md-4 {
+	background:rgba(255,255,255,0.8);
+}
 
