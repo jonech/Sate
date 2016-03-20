@@ -75,7 +75,5 @@ end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
 
-
 gem 'semantic-ui-sass', github: 'doabit/semantic-ui-sass'
 
-gem 'compass', '~> 1.1', '>= 1.1.0.alpha.3'
