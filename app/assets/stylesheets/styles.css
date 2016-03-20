@@ -99,4 +99,7 @@ ul li {
   text-align: center;
   color: gray; }
 
+.container > .row > .col-md-4 {
+  background: rgba(255, 255, 255, 0.8); }
+
 /*# sourceMappingURL=styles.css.map */
