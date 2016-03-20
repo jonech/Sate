@@ -1,0 +1,13 @@
+
+<p>
+  <strong>Username:</strong>
+  <%= @member.username %>
+</p>
+
+<p>
+  <strong>Company:</strong>
+  <%= @member.company %>
+</p>
+
+<%= link_to 'Edit', edit_member_path(@member) %> |
+<%= link_to 'Back', members_path %>

@@ -1,12 +1,17 @@
 Sate::Application.routes.draw do
+
+    resources :members
     get 'auth/:provider/callback', to: 'sessions#create'
     get 'auth/failure', to: redirect('/')
-    get 'signout', to: 'sessions#destroy', as: 'signout'
 
-    resources :sessions, only: [:create, :destroy] 
-      resource :welcome, only: [:show]
+    #resources :members
+    resources :sessions, only: [:create, :new, :destroy] 
+      #resource :welcome, only: [:show]
+    get 'signup', to: 'members#new', as: 'signup'
+    get 'login', to: 'sessions#new', as: 'login'
+    get 'logout', to: 'sessions#destroy', as: 'logout'
 
-    root to: "welcome#loginpage"
+    root to: "picture#display_pictures"
     get '/all_events' => 'picture#display_pictures'
     get '/top_events' => 'picture#filter_top_pictures'
     get 'welcome/loginpage'
